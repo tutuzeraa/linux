@@ -2814,6 +2814,15 @@ config SIPHASH_KUNIT_TEST
 	  This is intended to help people writing architecture-specific
 	  optimized versions.  If unsure, say N.
 
+config LLIST_KUNIT_TEST
+    tristate "KUnit tests for lib/llist" if !KUNIT_ALL_TESTS
+    default KUNIT_ALL_TESTS
+    depends on KUNIT
+    help
+        This option builds the "llist_kunit" test module that
+        helps to verify it correctness.
+        If unsure, say N.
+
 config TEST_UDELAY
 	tristate "udelay test driver"
 	help
